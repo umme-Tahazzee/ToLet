@@ -11,8 +11,8 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "RentNest | Find Your Perfect Rental",
-  description: "Browse and rent properties with RentNest",
+  title: "ToLet | Find Your Perfect Rental",
+  description: "Browse and rent properties with ToLet",
 };
 export default function RootLayout({
   children,

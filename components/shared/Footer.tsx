@@ -10,7 +10,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} ToLet. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <MessageSquareText className="h-4 w-4" />
-            <span>support@rentnest.com</span>
+            <span>support@ToLet.com</span>
           </div>
         </div>
       </footer>

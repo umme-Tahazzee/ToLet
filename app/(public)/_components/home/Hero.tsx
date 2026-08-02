@@ -65,7 +65,7 @@ const Hero = async () => {
           </h1>
 
           <p className="mt-5 max-w-md text-base text-muted-foreground sm:text-lg">
-            RentNest connects tenants directly with landlords — search
+            ToLet connects tenants directly with landlords — search
             verified listings, request a rental, and pay securely, all in one
             place.
           </p>

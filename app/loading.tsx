@@ -26,7 +26,7 @@ export default function Loading() {
           Finding your next home
         </p>
         <p className="text-xs text-muted-foreground">
-          Just a moment, RentNest is loading...
+          Just a moment, ToLet is loading...
         </p>
       </div>
 
