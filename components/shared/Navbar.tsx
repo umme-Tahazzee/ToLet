@@ -9,10 +9,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, Settings, User, ChevronDown } from "lucide-react";
+import { LogOut, Settings, User, ChevronDown, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import logo from '../../app/asssests/logo.png'
@@ -31,6 +30,8 @@ const navItems = [
 const userMenuItems = [
   { label: "Profile", icon: User, action: "profile" },
   { label: "Settings", icon: Settings, action: "settings" },
+  { label: "Dashboard", icon: LayoutDashboard, action: "dashboard" },
+
 ];
 
 type IUser = {
@@ -62,14 +63,16 @@ type NavbarProps = {
 };
 
 export function Navbar({ user }: NavbarProps) {
+
+if(user.success ===  true){
+      console.log("ok");  
+}else{
+   console.log("failed");
+   
+}
+  
   const router = useRouter();
   const handleUserMenuAction = async (action: string) => {
-    // if (action === "logout") {
-    //   await logout();
-    //   toast.success("User Logged Out Successfully!");
-    //   router.push("/login");
-    //   router.refresh()
-    // }
   };
 
   return (
@@ -148,6 +151,7 @@ export function Navbar({ user }: NavbarProps) {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
           ) : (
             <Link href={"/login"}>
               <Button className="cursor-pointer">Login</Button>

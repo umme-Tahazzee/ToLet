@@ -3,10 +3,10 @@ import { getMe } from '@/services/getMe'
 import React from 'react'
 
 const PublicLayout = async({children}:{children: React.ReactNode}) => {
-  // const user = await getMe()
+  const user = await getMe()
   return (
     <div>
-      {/* <Navbar user={user}/> */}
+      <Navbar user={user}/>
       <main>
         {children}
       </main>

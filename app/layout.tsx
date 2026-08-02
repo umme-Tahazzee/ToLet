@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={nunitoSans.variable}>
       <body className="min-h-full flex flex-col">
-      <Toaster position="bottom-center" richColors />
+      <Toaster position="top-right" richColors />
         {children}
         </body>
     </html>

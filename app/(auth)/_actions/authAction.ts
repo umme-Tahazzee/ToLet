@@ -39,8 +39,9 @@ export const loginAction = async (
 
   if (result.success) {
     const cookieStore = await cookies();
-
-    cookieStore.set("accessToken", result.data.acessToken, {
+    
+    
+    cookieStore.set("accessToken", result.data.accessToken, {
       httpOnly: true,
       maxAge: 60 * 60 * 24,
       sameSite: "lax",
@@ -55,7 +56,6 @@ export const loginAction = async (
 
     const decodedToken = jwt.decode(result.data.accessToken) as JwtPayload
 
-    console.log(decodedToken);
     
     if(decodedToken.role === 'TENANT'){
         redirect('/tenant');
