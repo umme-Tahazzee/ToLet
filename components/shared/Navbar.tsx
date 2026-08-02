@@ -14,16 +14,16 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-// import { logout } from "@/services/logout";
+import Image from "next/image";
+import logo from '../../app/asssests/logo.png'
+
 
 // Navigation items configuration
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Contact", href: "/contact" },
-  { label: "News", href: "/news" },
-  { label: "Premium", href: "/premium" },
+  { label: "Properties", href: "/services" },
+  
 
 ];
 
@@ -78,9 +78,7 @@ export function Navbar({ user }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <span className="text-2xl font-bold text-primary">
-              NextJs Press
-            </span>
+            <Image src={logo} alt="to-let" width={100} height={50} className=""/>
           </Link>
 
           {/* Nav Links */}
