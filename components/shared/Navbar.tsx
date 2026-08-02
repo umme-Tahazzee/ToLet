@@ -64,24 +64,18 @@ type NavbarProps = {
 
 export function Navbar({ user }: NavbarProps) {
 
-if(user.success ===  true){
-      console.log("ok");  
-}else{
-   console.log("failed");
-   
-}
-  
   const router = useRouter();
   const handleUserMenuAction = async (action: string) => {
   };
 
   return (
-    <nav className="border-b border-border">
+    <nav className="border-b border-b-gray-100 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <Image src={logo} alt="to-let" width={100} height={50} className=""/>
+            {/* <Image src={logo} alt="to-let" width={100} height={50} className=""/> */}
+            <h1 className="uppercase text-primary tracking-wide text-2xl font-extrabold">TOLET</h1>
           </Link>
 
           {/* Nav Links */}
