@@ -8,7 +8,7 @@ const PublicLayout = async({children}:{children: React.ReactNode}) => {
   return (
     <div>
       <Navbar user={user}/>
-      <main>
+      <main className='w-full max-w-7xl mx-auto '>
         {children}
       </main>
       <Footer/>
