@@ -1,4 +1,31 @@
-// types/index.ts e ei part update koro
+export type IUser = {
+  success: boolean;
+  message: string;
+  data: {
+    profile: {
+      id: string;
+      name: string;
+      email: string;
+      role: string;
+      phone : string;
+      status : string;
+      isDelete : boolean;
+      createdAt: string;
+      updatedAt: string;
+      profile: {
+        id: string;
+        profilePhoto: string;
+        bio: string | null;
+        userId: string;
+        createdAt: string;
+        updatedAt: string;
+      };
+    };
+  };
+};
+
+
+
 
 export interface Property {
   id: string;

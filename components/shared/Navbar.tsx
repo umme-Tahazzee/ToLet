@@ -25,18 +25,13 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Properties", href: "/properties" },
-  
-
 ];
 
 // User menu items configuration
 const userMenuItems = [
-  { label: "Profile", icon: User, action: "profile" },
-  { label: "Dashboard", icon: LayoutDashboard, action: "dashboard" },
-
+  { label: "Profile", icon: User, action: "profile", href: '/profile' },
+  { label: "Dashboard", icon: LayoutDashboard, action: "dashboard", href: '/dashboard' },
 ];
-
-
 
 type NavbarProps = {
   user: IUser;
@@ -46,14 +41,30 @@ export function Navbar({ user }: NavbarProps) {
 
   const router = useRouter();
 
-
-  const handleUserMenuAction = async (action: string) => {
-    if(action === 'logout'){
-      await logout()
+  const handleUserMenuAction = async (action: string, href?: string) => {
+    if (action === "logout") {
+      await logout();
       toast.success("User Logged Out Successfully!");
-      router.push('/login')
-      router.refresh()
-  }
+      router.push("/login");
+      router.refresh();
+      return;
+    }
+
+    if (action === "dashboard") {
+      const role = user.data?.profile.role;
+      if (role === "TENANT") {
+        router.push("/tenant");
+      } else if (role === "LANDLORD") {
+        router.push("/landlord");
+      } else if (role === "ADMIN") {
+        router.push("/admin");
+      }
+      return;
+    }
+
+    if (href) {
+      router.push(href);
+    }
   };
 
   return (
@@ -62,7 +73,6 @@ export function Navbar({ user }: NavbarProps) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            {/* <Image src={logo} alt="to-let" width={100} height={50} className=""/> */}
             <h1 className="uppercase text-primary tracking-wide text-2xl font-extrabold">TOLET</h1>
           </Link>
 
@@ -115,7 +125,7 @@ export function Navbar({ user }: NavbarProps) {
                   return (
                     <DropdownMenuItem
                       key={item.action}
-                      onClick={() => handleUserMenuAction(item.action)}
+                      onClick={() => handleUserMenuAction(item.action, item.href)}
                     >
                       <Icon className="w-4 h-4 mr-2" />
                       <span>{item.label}</span>

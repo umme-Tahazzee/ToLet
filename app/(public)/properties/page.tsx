@@ -5,6 +5,7 @@ import { getProperties } from "@/lib/api/properties";
  import { PropertyCard } from "../_components/properties/PropertyCard";
 import { SearchForm } from "../_components/properties/SearchFrom";
 import { PropertyFiltersPanel } from "../_components/properties/PropertyFilters";
+import { Property } from "@/types";
 
 type PageProps = {
   searchParams: Promise<PropertyFilters>;
@@ -14,9 +15,8 @@ async function PropertyResults({ filters }: { filters: PropertyFilters }) {
   const res = await getProperties(filters);
   const properties = res.data.data || [];
   const meta = res.meta || { page: 1, totalPage: 1, total: 0 };
-
-
-
+  // console.log(meta, "meta");
+  
 
   if (properties.length === 0) {
     return (
@@ -35,7 +35,7 @@ async function PropertyResults({ filters }: { filters: PropertyFilters }) {
     const params = new URLSearchParams(
       Object.entries(filters).filter(([, v]) => v !== undefined && v !== "") as [string, string][]
     );
-    params.set("page", String(page));
+    params.set("page", page.toString());
     return `/properties?${params.toString()}`;
   };
 
@@ -44,7 +44,7 @@ async function PropertyResults({ filters }: { filters: PropertyFilters }) {
   return (
     <>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {properties.map((property: any) => (
+        {properties.map((property:Property) => (
            <PropertyCard key={property.id} property={property} />
         ))}
       </div>
