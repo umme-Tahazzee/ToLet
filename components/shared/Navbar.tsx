@@ -15,6 +15,9 @@ import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import logo from '../../app/asssests/logo.png'
+import { logout } from "@/services/logout";
+import { toast } from "sonner";
+import { IUser } from "@/types";
 
 
 // Navigation items configuration
@@ -29,34 +32,11 @@ const navItems = [
 // User menu items configuration
 const userMenuItems = [
   { label: "Profile", icon: User, action: "profile" },
-  { label: "Settings", icon: Settings, action: "settings" },
   { label: "Dashboard", icon: LayoutDashboard, action: "dashboard" },
 
 ];
 
-type IUser = {
-  success: boolean;
-  message: string;
-  data: {
-    profile: {
-      id: string;
-      name: string;
-      email: string;
-      activeStatus: string;
-      role: string;
-      createdAt: string;
-      updatedAt: string;
-      profile: {
-        id: string;
-        profilePhoto: string;
-        bio: string | null;
-        userId: string;
-        createdAt: string;
-        updatedAt: string;
-      };
-    };
-  };
-};
+
 
 type NavbarProps = {
   user: IUser;
@@ -65,7 +45,15 @@ type NavbarProps = {
 export function Navbar({ user }: NavbarProps) {
 
   const router = useRouter();
+
+
   const handleUserMenuAction = async (action: string) => {
+    if(action === 'logout'){
+      await logout()
+      toast.success("User Logged Out Successfully!");
+      router.push('/login')
+      router.refresh()
+  }
   };
 
   return (

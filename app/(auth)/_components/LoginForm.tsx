@@ -33,13 +33,12 @@ const LoginFrom = () => {
 
   useEffect(()=>{
      if(!state || !state.message) return
-     if(state.message){
-       toast.success("Login Successfully")
-     }
+     if(state.message) toast.success("Login Successfully")
+     
      if(!state.success){
        toast.error(state.message || "Login Failed")
      }
-  })
+  }, [state])
 
   return (
     <form action={action} className="space-y-4 w-full max-w-sm">
