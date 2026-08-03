@@ -2,8 +2,19 @@ import React from 'react'
 
 const RightSideAnimate = () => {
   return (
-    <div className="hidden lg:flex w-1/2 items-center justify-center p-12 relative overflow-hidden">
-        
+    <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-primary/5 via-background to-primary/10 items-center justify-center p-12 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating circle 1 */}
+          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/15 blur-3xl animate-pulse"></div>
+          {/* Floating circle 2 */}
+          <div
+            className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-primary/10 blur-3xl animate-pulse"
+            style={{ animationDelay: "1s" }}
+          ></div>
+          {/* Animated gradient line */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-1 bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0 blur-lg rotate-45 animate-pulse"></div>
+        </div>
 
         {/* Content */}
         <div className="relative z-10 text-center max-w-sm">

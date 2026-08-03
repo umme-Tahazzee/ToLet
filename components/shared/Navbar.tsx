@@ -21,7 +21,7 @@ import logo from '../../app/asssests/logo.png'
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Properties", href: "/services" },
+  { label: "Properties", href: "/properties" },
   
 
 ];

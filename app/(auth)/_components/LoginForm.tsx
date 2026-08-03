@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { loginAction, LoginState } from "../_actions/authAction";
 import { useActionState, useEffect } from "react";
 import { toast } from "sonner";
+import Link from "next/link";
 
 const initialState: LoginState = {
   success: false,
@@ -49,7 +50,9 @@ const LoginFrom = () => {
             Enter your email below to login to your account
           </CardDescription>
           <CardAction>
-            <Button variant="link">Sign Up</Button>
+            <Button variant="link">
+               <Link href="/signup">Sign Up</Link>
+            </Button>
           </CardAction>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -68,9 +71,7 @@ const LoginFrom = () => {
           <Button type="submit" className="w-full">
             {pending ? 'Submitting...' : 'Login'}
           </Button>
-          <Button type="button" variant="outline" className="w-full">
-            Login with Google
-          </Button>
+          
         </CardContent>
       </Card>
     </form>
