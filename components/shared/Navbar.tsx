@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogOut, Settings, User, ChevronDown, LayoutDashboard } from "lucide-react";
+import { LogOut,  User, ChevronDown, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
@@ -33,7 +33,7 @@ const userMenuItems = [
   { label: "Dashboard", icon: LayoutDashboard, action: "dashboard", href: '/dashboard' },
 ];
 
-type NavbarProps = {
+export type NavbarProps = {
   user: IUser;
 };
 
