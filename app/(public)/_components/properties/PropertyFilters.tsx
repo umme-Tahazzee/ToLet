@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { getCategories, PropertyFilters } 
+import {  PropertyFilters } 
 from "../../_actions/properties/getProperties";
+import getCategories from "@/app/(dashboard)/admin/_actions/categoriesAction";
 
 
 const bedroomOptions = ["1", "2", "3", "4"];
