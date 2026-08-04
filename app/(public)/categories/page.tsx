@@ -1,6 +1,7 @@
 // app/(public)/categories/page.tsx
+import getCategories from "@/app/(dashboard)/admin/_actions/categoriesAction";
 import Link from "next/link";
-import { getCategories } from "../_actions/properties/getProperties";
+
 
 const Categories = async () => {
   const result = await getCategories();

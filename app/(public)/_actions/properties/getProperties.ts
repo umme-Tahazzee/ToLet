@@ -25,14 +25,3 @@ export const getProperties = async (filters: PropertyFilters) => {
 
     return res.json()
 }
-
-export const getCategories = async() =>{
-    const res = await fetch(`${process.env.BACKEND_API_URL}/api/categories/`,{
-         cache : "no-cache"
-    })
-   
-    const result = await res.json()
-    // console.log(result);
-    
-    return result
-}

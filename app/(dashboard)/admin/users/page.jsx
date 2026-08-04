@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import getAllUsers from "../_actions/userAction";
+
 import UserTable from '../_components/UserTable'
 import {Skeleton} from '../../../../components/ui/skeleton'
-
+import {getAllUsers} from '../_actions/userAction'
 
 
 async function UserTableWrapper() {
@@ -14,7 +14,7 @@ async function UserTableWrapper() {
 
 const UserPage = async () => {
  
-
+       
   return (
     <div className="p-6 space-y-4">
       <Suspense fallback={<Skeleton className="h-64 w-full" />}>

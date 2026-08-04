@@ -1,8 +1,9 @@
-"use client";
+"use client"
 
 
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import UserStatusAction from "./UserStatusAction";
 
 type TUser = {
   id: string;
@@ -42,7 +43,10 @@ const statusBadgeClass = (status: string) => {
   }
 };
 
-const UserTable = ({ users }: { users: TUser[] }) => {
+const UserTable =({ users }: { users: TUser[] }) => {
+
+  
+  
   return (
     <div className="rounded-md border shadow-sm">
       <Table>
@@ -55,6 +59,7 @@ const UserTable = ({ users }: { users: TUser[] }) => {
             <TableHead>Phone</TableHead>
             <TableHead>Status</TableHead>
             <TableHead>Joined</TableHead>
+            <TableHead className="text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -83,6 +88,13 @@ const UserTable = ({ users }: { users: TUser[] }) => {
                     month: "short",
                     year: "numeric",
                   })}
+                </TableCell>
+                <TableCell className="text-right">
+                  <UserStatusAction
+                    userId={user.id}
+                    userName={user.name}
+                    currentStatus={user.status}
+                  />
                 </TableCell>
               </TableRow>
             ))

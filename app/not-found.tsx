@@ -44,10 +44,11 @@ export default function NotFound() {
           Back to home
         </Button>
         <Button
+        nativeButton={false}
           size="lg"
           variant="outline"
           className="gap-2"
-          render={<Link href="/properties" />}
+           render={<Link href="/">Go home</Link>}
         >
           <Search className="h-4 w-4" />
           Browse properties
