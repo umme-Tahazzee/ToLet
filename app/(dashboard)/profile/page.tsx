@@ -1,15 +1,13 @@
+
+
 import {
   Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   CardContent,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Mail,
-  Phone,
   CalendarDays,
   ShieldCheck,
   User as UserIcon,
@@ -20,7 +18,7 @@ import {
 import { redirect } from "next/navigation";
 import { IUser } from "@/types";
 import { getMe } from "@/services/getMe";
-import { useEffect } from "react";
+
 
 const ProfilePage = async () => {
   const user: IUser = await getMe();
