@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 
-const getAllUsers = async () => {
+const getAllProperty = async () => {
   const cookieStore = await cookies();
   const accessToken = cookieStore.get("accessToken")?.value;
 
@@ -15,7 +15,7 @@ const getAllUsers = async () => {
 
   try {
     const res = await fetch(
-      `${process.env.BACKEND_API_URL}/api/admin/users`,
+      `${process.env.BACKEND_API_URL}/api/admin/properties`,
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -40,4 +40,4 @@ const getAllUsers = async () => {
   }
 };
 
-export default getAllUsers;
+export default getAllProperty;
