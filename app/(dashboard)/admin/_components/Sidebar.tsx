@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, Users, Building2, ClipboardList, Tags, X } from "lucide-react";
 import { NavbarProps } from "@/components/shared/Navbar";
-import { Sidebar, SidebarHeader } from "@/components/ui/sidebar";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -16,11 +15,11 @@ const navItems = [
 ];
 
 interface AdminSidebarProps extends NavbarProps {
-  isOpen?: boolean;
-  onClose?: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export function AdminSidebar({ user, isOpen = false, onClose }: AdminSidebarProps) {
+export function AdminSidebar({ user, isOpen, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
 
   const name: string = user?.data?.profile?.name ?? "Admin";
@@ -34,7 +33,6 @@ export function AdminSidebar({ user, isOpen = false, onClose }: AdminSidebarProp
 
   return (
     <>
-      {/* Mobile overlay/backdrop */}
       {isOpen && (
         <div
           onClick={onClose}
@@ -43,28 +41,23 @@ export function AdminSidebar({ user, isOpen = false, onClose }: AdminSidebarProp
         />
       )}
 
-      <Sidebar
+      <aside
         className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r bg-white
         transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
         md:static md:translate-x-0 md:z-auto`}
       >
-        {/* Profile header */}
-        <SidebarHeader className="flex items-center justify-between gap-3 border-b p-5">
+        <div className="flex items-center justify-between gap-3 border-b p-5">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center 
-            rounded-full bg-primary text-sm font-semibold text-white">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
               {initials}
             </div>
             <div className="min-w-0">
-              <h1 className="truncate text-sm font-semibold text-gray-900">
-                {name}
-              </h1>
+              <h1 className="truncate text-sm font-semibold text-gray-900">{name}</h1>
               <p className="truncate text-xs text-gray-500">{email}</p>
             </div>
           </div>
 
-          {/* Mobile close button */}
           <button
             type="button"
             onClick={onClose}
@@ -73,9 +66,8 @@ export function AdminSidebar({ user, isOpen = false, onClose }: AdminSidebarProp
           >
             <X size={18} />
           </button>
-        </SidebarHeader>
+        </div>
 
-        {/* Nav items */}
         <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-3 py-4">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -107,11 +99,10 @@ export function AdminSidebar({ user, isOpen = false, onClose }: AdminSidebarProp
           })}
         </nav>
 
-        {/* Optional footer */}
         <div className="border-t px-5 py-4">
           <p className="text-xs text-gray-400">© {new Date().getFullYear()} Admin Panel</p>
         </div>
-      </Sidebar>
+      </aside>
     </>
   );
 }
