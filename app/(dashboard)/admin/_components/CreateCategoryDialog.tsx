@@ -50,7 +50,7 @@ const CreateCategoryDialog = () => {
       <DialogTrigger
         className={cn(buttonVariants({ variant: "default" }), "rounded-md")}
       >
-        Create category +
+        <span className="hidden md:block">Create category</span> +
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

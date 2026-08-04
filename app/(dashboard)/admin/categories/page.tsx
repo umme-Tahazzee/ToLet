@@ -7,10 +7,10 @@ const CategoriesPage = async () => {
   const categories = result?.data || [];
 
   return (
-    <div className="space-y-4 p-6">
-      <div className="flex justify-between">
+    <div className="space-y-4 ">
+      <div className="flex gap-2 justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">All Categories</h1>
+          <h1 className="text-md sm:text-xl md:text-2xl font-bold tracking-tight">All Categories</h1>
           <p className="text-sm text-muted-foreground">
             Manage property categories used across listings.
           </p>
