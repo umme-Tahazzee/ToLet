@@ -2,7 +2,7 @@
 
 const TenantDashboar = () => {
   return (
-    <div></div>
+    <div>page</div>
   )
 }
 
