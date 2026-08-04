@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, Building2, ClipboardList, Tags, X, CreditCard, Search } from "lucide-react";
+import { LayoutDashboard,  ClipboardList,  X, CreditCard, Search } from "lucide-react";
 import { NavbarProps } from "@/components/shared/Navbar";
 
 const navItems = [
@@ -48,7 +48,8 @@ export function TenantSidebar({ user, isOpen, onClose }: TenantSidebarProps) {
       >
         <div className="flex items-center justify-between gap-3 border-b p-5">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full 
+            bg-primary text-sm font-semibold text-white">
               {initials}
             </div>
             <div className="min-w-0">
@@ -71,7 +72,7 @@ export function TenantSidebar({ user, isOpen, onClose }: TenantSidebarProps) {
           {navItems.map((item) => {
             const Icon = item.icon;
             const active =
-              item.href === "/admin"
+              item.href === "/tenant"
                 ? pathname === item.href
                 : pathname.startsWith(item.href);
 
