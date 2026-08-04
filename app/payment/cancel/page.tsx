@@ -1,10 +1,11 @@
 // tenant/payments/page.tsx
 
+import { getMyPayments } from "@/app/(dashboard)/tenant/_actions/paymentAction";
 import { Badge } from "@/components/ui/badge";
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
-import { getMyPayments } from "../../_actions/paymentAction";
+
 
 const paymentStyles: Record<string, string> = {
   PAID: "bg-green-100 text-green-700 hover:bg-green-100",
