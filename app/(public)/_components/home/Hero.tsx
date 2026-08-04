@@ -1,4 +1,5 @@
 // components/shared/hero.tsx
+import HeroSearch from "@/components/shared/HeroSearch";
 import { Button } from "@/components/ui/button";
 import { getMe } from "@/services/getMe";
 import {
@@ -33,6 +34,8 @@ const featuredProperties = [
     image:
       "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=900&auto=format&fit=crop",
   },
+
+  
 ];
 
 const Hero = async () => {
@@ -71,34 +74,7 @@ const Hero = async () => {
           </p>
 
           {/* Search card */}
-          <div className="mt-8 flex flex-col gap-2 rounded-2xl border border-border bg-card p-2 shadow-sm sm:flex-row">
-            <div className="flex flex-1 items-center gap-2 rounded-xl px-3 py-2.5">
-              <MapPin className="h-4 w-4 shrink-0 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="City — e.g. Cox's Bazar"
-                className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-              />
-            </div>
-            <div className="hidden w-px self-stretch bg-border sm:block" />
-            <div className="flex flex-1 items-center gap-2 rounded-xl px-3 py-2.5">
-              <HomeIcon className="h-4 w-4 shrink-0 text-muted-foreground" />
-              <input
-                type="text"
-                placeholder="Bedrooms, budget..."
-                className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-              />
-            </div>
-            <Button
-              size="lg"
-              className="gap-2 rounded-xl"
-              nativeButton={false}
-              render={<Link href="/properties" />}
-            >
-              <Search className="h-4 w-4" />
-              Search
-            </Button>
-          </div>
+          <HeroSearch />
 
           {/* CTA row — search primary, list-property secondary */}
           <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -145,7 +121,7 @@ const Hero = async () => {
             className="absolute right-10 top-6 h-72 w-72 bg-primary/100
             rounded-full border border-dashed border-primary/20"
           />
-          
+
           {/* Main featured card */}
           <div className="absolute left-4 top-6 w-80 overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
             <div className="relative h-52 w-full">
